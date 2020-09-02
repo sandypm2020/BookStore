@@ -1,4 +1,18 @@
 <div class="container-fluid">
   <app-nav></app-nav>
-  <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-1">
+      <ul class="leftNav">
+        <li>
+          <a href="/books">Books</a>
+        </li>
+        <li>
+          <a href="/users">Users</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
