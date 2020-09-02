@@ -4,19 +4,23 @@ import { BookListComponent } from './book/book-list/book-list.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'books', pathMatch: 'full' },
   {
     path: 'books',
-    component: BookListComponent,
+    loadChildren: () => import('./book/book.module').then((m) => m.BookModule),
   },
   {
     path: 'users',
-    component: UserListComponent,
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
+  { path: '', pathMatch: 'full', redirectTo: 'books' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: true,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
