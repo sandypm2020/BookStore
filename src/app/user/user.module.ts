@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddUserComponent } from './add-user/add-user.component';
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { UserEditComponent } from './user-edit/user-edit.component';
 
 const routes: Routes = [
@@ -26,6 +26,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [UserListComponent, AddUserComponent, UserEditComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
 export class UserModule {}
